@@ -23,16 +23,7 @@ let searchTerm = "";
 // Event listeners
 movieFormEl.addEventListener("submit", getSearchResults);
 loadMoviesBtnEl.addEventListener("click", loadMoreMovies);
-closeBtnEl.addEventListener("click", () => {
-    console.log("close btn clicked");
-    searchTerm = "";
-    closeBtnEl.classList.add("hidden");
-    movieFormEl.movie.value = "";
-    pageNum = 1;
-    gridTitleEl.innerHTML = '';
-    movieAreaEl.innerHTML = '';
-    generateCurrentMovies();
-});
+closeBtnEl.addEventListener("click", closeSearch);
 topBtnEl.addEventListener("click", () => {
     window.scrollTo(0, 0);
 });
@@ -47,14 +38,12 @@ async function generateCurrentMovies(){
     }
     generateHTML(responseData);
 }
-
 async function generateSearchMovies(){
     let apiUrl = "https://api.themoviedb.org/3/search/movie?api_key="+api_key+"&language=en-US&query="+searchTerm+"&page="+pageNum;
     let response = await fetch(apiUrl);
     let responseData = await response.json();
     generateHTML(responseData);
 }
-
 async function generateSpecificMovie(movieId){
     let apiUrl = "https://api.themoviedb.org/3/movie/{"+movieId+"}?api_key="+api_key+"&language=en-US";
     let response = await fetch(apiUrl);
@@ -62,6 +51,7 @@ async function generateSpecificMovie(movieId){
     generateMovieInfoHTML(responseData);
 }
 
+//functions that are called from event listeners 
 function getSearchResults(evt){
     evt.preventDefault();
     closeBtnEl.classList.remove("hidden");
@@ -78,18 +68,28 @@ function getSearchResults(evt){
         generateSearchMovies(searchTerm);
     }
 }
-
-function clearMovieAreaScreen(){
-    gridTitleEl.innerHTML = '';
-    movieAreaEl.innerHTML = '';
-    searchTerm = "";
+function loadMoreMovies(){
+    pageNum++;
     
+    if(searchTerm == ""){
+        generateCurrentMovies();
+    } else {
+        generateSearchMovies();
+    }
+}
+function closeSearch(){
+    clearMovieGridScreen();
+    generateCurrentMovies();
 }
 
-
-
-function generateMovieInfoHTML(responseData){
-
+function clearMovieGridScreen(){
+    gridTitleEl.innerHTML = '';
+    movieAreaEl.innerHTML = '';
+    movieFormEl.movie.value = "";
+    closeBtnEl.classList.add("hidden");
+    loadMoviesBtnEl.classList.add("hidden");
+    searchTerm = "";
+    pageNum = 1;
 }
 
 function generateHTML(movieData){
@@ -104,24 +104,18 @@ function generateHTML(movieData){
     topBtnEl.classList.remove("hidden")
 }
 
-function loadMoreMovies(){
-    //increment pageNum
-    pageNum++;
-    
-    if(searchTerm == ""){
-        generateCurrentMovies();
-    } else {
-        generateSearchMovies();
-    }
+// functions for pop up window
+function generateMovieInfoHTML(responseData){
+
+}
+function clicked(movieClicked){
+    console.log(movieClicked.title + " was clicked!")
+    // backdropEl.innerHTML += 'movieClicked.title';
 }
 
+// function for onload screen
 window.onload = function () {
     console.log("onload function is called")
     generateCurrentMovies();
     pageNum=1;
-}
-
-function clicked(movieClicked){
-    console.log(movieClicked.title + " was clicked!")
-    // backdropEl.innerHTML += 'movieClicked.title';
 }
