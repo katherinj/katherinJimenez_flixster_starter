@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flixter</title>
+    <title>Flixster</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://css.gg/search.css' rel='stylesheet'>
     <link href='https://css.gg/close.css' rel='stylesheet'>
@@ -14,42 +14,35 @@
     
 </head>
 <body>
-    <div id="navBar">
-        <div id ="title">
-            <img src="https://www.flixster.com/logo/logo_Mobile.svg" id="icon"/>
-            <h1>Flixter</h1>
-        </div>
-        <div id="search-area">
-            <div id="search-bar">
-                <form id ="search-form"> 
-                    <button id="search-btn">
-                        <i id="searchIcon" class="gg-search" ></i>
+    <div id="front-page" onclick="exitPopUp()"> 
+        <div id="navBar">
+            <div id ="title">
+                <img src="https://www.flixster.com/logo/logo_Mobile.svg" id="icon"/>
+                <h1>Flixster</h1>
+            </div>
+            <div id="search-area">
+                <div id="search-bar">
+                    <form id ="search-form"> 
+                        <button id="search-btn">
+                            <i id="searchIcon" class="gg-search" ></i>
+                        </button>
+                        <input type="text" id = "search-input" name="movie" placeholder="Search for movies..."></input>
+                    </form>
+                    <button id="close-search-btn" class="hidden">
+                        <i id="closeIcon" class="gg-close" ></i>
                     </button>
-                    <input type="text" id = "search-input" name="movie" placeholder="Search for movies..."></input>
-                </form>
-                <button id="close-search-btn" class="hidden">
-                    <i id="closeIcon" class="gg-close" ></i>
-                </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="grid-title">
-
-    </div>
-    <div id="movies-grid">
-
-    </div>
-    <!-- <div id="backdrop">
-        <div id="more-info">
-            <div id="movie-title"
-
-            </div>
-
-        </div>
-    </div> -->
-    <div id = "moreBtnArea">
+        <div id="grid-title"> </div>
+        <div id="movies-grid"> </div>
+        <div id = "moreBtnArea">
         <button id="load-more-movies-btn" class="hidden endPgBtn"> Show more </button>
-        <button id="return-to-top-btn" class="hidden endPgBtn"> Return to top </button>
+            <button id="return-to-top-btn" class="hidden endPgBtn"> Return to top </button>
+        </div>
+    </div>
+    <div id="more-info" class="hidden">
+
     </div>
     <script src="script.js"></script>
 </body>

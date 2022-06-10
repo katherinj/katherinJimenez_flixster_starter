@@ -2,6 +2,7 @@
 const api_key = "acb5971573887a1f65372eac466017f9";
 
 // DOM constants
+const frontPageEl = document.querySelector("#front-page");
 const movieFormEl = document.querySelector("form");
 
 const searchBtnEl = document.querySelector("#search-icon");
@@ -9,6 +10,7 @@ const closeBtnEl = document.querySelector("#close-search-btn");
 
 const gridTitleEl = document.querySelector("#grid-title");
 const movieAreaEl = document.querySelector("#movies-grid");
+const moreInfoEl = document.querySelector("#more-info");
 
 const moreBtnEl = document.querySelector("#moreBtnArea");
 const loadMoviesBtnEl = document.querySelector("#load-more-movies-btn");
@@ -45,10 +47,11 @@ async function generateSearchMovies(){
     generateHTML(responseData);
 }
 async function generateSpecificMovie(movieId){
-    let apiUrl = "https://api.themoviedb.org/3/movie/{"+movieId+"}?api_key="+api_key+"&language=en-US";
+    let apiUrl = "https://api.themoviedb.org/3/movie/"+movieId+"?api_key="+api_key+"&language=en-US";
     let response = await fetch(apiUrl);
     let responseData = await response.json();
-    generateMovieInfoHTML(responseData);
+    console.log(apiUrl + " GSM movie was clicked")
+    displayPopUp(responseData);
 }
 
 //functions that are called from event listeners 
@@ -61,8 +64,8 @@ function getSearchResults(evt){
 
     if(searchTerm == ''){
         window.alert("Please enter a search term before searching!");
-        loadMoviesBtnEl.classList.add("hidden")
-        topBtnEl.classList.add("hidden")
+        clearMovieGridScreen();
+        generateCurrentMovies();
     }else{
         gridTitleEl.innerHTML = `<h4> Results for: ${searchTerm}</h4>`;
         generateSearchMovies(searchTerm);
@@ -105,12 +108,35 @@ function generateHTML(movieData){
 }
 
 // functions for pop up window
-function generateMovieInfoHTML(responseData){
-
+function displayPopUp(responseData){
+    moreInfoEl.innerHTML = `
+    <div id="backdrop"> 
+        <img src="https://image.tmdb.org/t/p/w1280/${responseData.backdrop_path}" alt="" id="backdropImg">
+        </div>
+        <div id="movie-title-details"> 
+            <p id="movieName"> ${responseData.title} </p>
+            <p id="score"> score & emoji </p>
+        </div>
+        <div id="extra-movie-info">
+            <p> ${responseData.release_date} </p>
+            <p> ${responseData.runtime} </p>
+            <p> ${responseData.genres[0].name} </p>
+        </div>
+            <p> ${responseData.overview} </p>
+        </div>`
+    moreInfoEl.classList.remove("hidden");
+    frontPageEl.classList.add("blur");
 }
+function exitPopUp(){
+    if(frontPageEl.classList.contains("blur")){
+    moreInfoEl.classList.add("hidden");
+    frontPageEl.classList.remove("blur");
+    }
+}
+
 function clicked(movieClicked){
-    console.log(movieClicked.title + " was clicked!")
-    // backdropEl.innerHTML += 'movieClicked.title';
+    generateSpecificMovie(movieClicked);
+    console.log(movieClicked + " was clicked!")
 }
 
 // function for onload screen
