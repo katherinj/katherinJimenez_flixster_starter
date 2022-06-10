@@ -42,7 +42,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-![](https://imgur.com/a/1lgMLFq)
+![Walkthrough gif](https://imgur.com/gallery/1lgMLFq)
 
 ### Reflection
 
