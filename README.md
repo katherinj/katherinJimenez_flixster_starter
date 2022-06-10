@@ -42,19 +42,17 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+https://imgur.com/a/1lgMLFq
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The topics discussed in the labs prepared me for this project. The first lab helped with focusing on css skills. The biggest help was lab 3 with Giphy Party. I was able to reference my completed labs and notes that I took from Doug's lectures and it was a ton of help in finishing the final weeky project.  
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have started looking at inspiration earlier in the coding process. I am fairly confident in the backend part of my code, and I found that part to be easy. However, once I got to the styling part of the assingment, I felt like I was having creative blocks and could not figure out how to make my webpage look better. Once Roy showed his finished project, I was able to use it as inpiration and finally get moving on the styling portion of the assingment. Once I knew how I wanted to style the page, it was just a matter of looking up how to implement certain style features into my code. I learned about a lot of different css attributes which was really helpful. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -66,4 +64,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I'd like to give a shout out to TA Roy for helping me out. I also would like to shout out my pod partner from Thursday Angelo for helping me fix some bugs in my code. 

@@ -91,7 +91,7 @@ p{
     flex-wrap: wrap;
 }
 
-#movie-card{
+.movie-card{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 185px;
     height: 354px;
@@ -100,7 +100,7 @@ p{
     background-color: lightgray;
 
 }
-#movie-card:hover{
+.movie-card:hover{
     transform: scale(1.05);
     cursor: pointer;
 }

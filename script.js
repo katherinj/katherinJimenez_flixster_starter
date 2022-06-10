@@ -98,7 +98,7 @@ function clearMovieGridScreen(){
 function generateHTML(movieData){
     movieData.results.forEach(function(element){ 
         movieAreaEl.innerHTML += `
-            <div id="movie-card" onClick="clicked('${element.id}')">
+            <div class="movie-card" onClick="clicked('${element.id}')">
                 <img class="movie-poster" src="https://image.tmdb.org/t/p/w185${element.poster_path}" alt="" /> 
                 <p class="movie-votes"> ${element.vote_average}/10</p>
                 <p class="movie-title"> ${element.title} </p>
