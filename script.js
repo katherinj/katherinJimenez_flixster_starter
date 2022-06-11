@@ -112,18 +112,20 @@ function displayPopUp(responseData){
     moreInfoEl.innerHTML = `
     <div id="backdrop"> 
         <img src="https://image.tmdb.org/t/p/w1280/${responseData.backdrop_path}" alt="" id="backdropImg">
-        </div>
+    </div>
+    <div id="movie-text-details"> 
         <div id="movie-title-details"> 
-            <p id="movieName"> ${responseData.title} </p>
+            <p id="movie-name"> ${responseData.title} </p>
             <p id="score"> score & emoji </p>
         </div>
-        <div id="extra-movie-info">
+        <div id="misc-movie-info">
             <p> ${responseData.release_date} </p>
             <p> ${responseData.runtime} </p>
             <p> ${responseData.genres[0].name} </p>
         </div>
             <p> ${responseData.overview} </p>
-        </div>`
+        </div>
+    </div>`
     moreInfoEl.classList.remove("hidden");
     frontPageEl.classList.add("blur");
 }

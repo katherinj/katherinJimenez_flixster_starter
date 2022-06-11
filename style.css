@@ -183,7 +183,9 @@ p{
     filter: blur(5px);
     /* pointer-events:none; */
 }
- 
+#movie-text-details{
+    margin: 10px;
+}
 #more-info{
     position: fixed;
     width: 60%;
